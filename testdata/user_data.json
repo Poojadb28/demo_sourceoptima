@@ -1,0 +1,20 @@
+{
+  "system_admin_login": {
+    "email": "prekshita@sourceoptima.com",
+    "password": "aspl1234"
+  },
+  "create_admin_user": {
+    "full_name": "TestUser1",
+    "email": "testuser1@gmail.com",
+    "password": "Test@1234",
+    "confirm_password": "Test@1234",
+    "role": "Admin - Organization Administrator"
+  },
+  "create_user": {
+    "full_name": "TestUser2",
+    "email": "testuser2@gmail.com",
+    "password": "Test@1234",
+    "confirm_password": "Test@1234",
+    "role": "Customer - Standard User"
+  }
+}
