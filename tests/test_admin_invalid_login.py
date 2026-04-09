@@ -14,8 +14,8 @@ def test_admin_invalid_login(browser, test_data):
     browser.get(BASE_URL)
 
     # Use fixture instead of file open
-    email = test_data["admin_invalid_login"]["email"]
-    password =test_data["admin_invalid_login"]["password"]
+    email = test_data["logins"]["admin_invalid"]["email"]
+    password = test_data["logins"]["admin_invalid"]["password"]
 
     login = LoginPage(browser)
 

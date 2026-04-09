@@ -13,8 +13,8 @@ def test_system_admin_invalid_login(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["system_admin_invalid_login"]["email"]
-    password = test_data["system_admin_invalid_login"]["password"]
+    email = test_data["logins"]["system_admin_invalid"]["email"]
+    password = test_data["logins"]["system_admin_invalid"]["password"]
 
     login = LoginPage(browser)
 

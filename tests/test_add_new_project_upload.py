@@ -14,8 +14,8 @@ def test_add_new_project(browser, test_data):
     browser.get(BASE_URL)
 
     #  Use fixture instead of file open
-    email = test_data["system_admin_login"]["email"]
-    password = test_data["system_admin_login"]["password"]
+    email = test_data["logins"]["system_admin"]["email"]
+    password = test_data["logins"]["system_admin"]["password"]
 
     # Login
     login = LoginPage(browser)

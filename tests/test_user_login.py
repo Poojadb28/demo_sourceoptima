@@ -13,8 +13,8 @@ def test_user_login(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["user_login"]["email"]
-    password = test_data["user_login"]["password"]
+    email = test_data["logins"]["user"]["email"]
+    password = test_data["logins"]["user"]["password"]
 
     login = LoginPage(browser)
 

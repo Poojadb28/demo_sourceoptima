@@ -13,8 +13,9 @@ def test_user_invalid_login(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["user_invalid_login"]["email"]
-    password = test_data["user_invalid_login"]["password"]
+    email = test_data["logins"]["user_invalid"]["email"]
+    password = test_data["logins"]["user_invalid"]["password"]
+
 
     login = LoginPage(browser)
 

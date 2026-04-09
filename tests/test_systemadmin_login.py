@@ -14,7 +14,6 @@ def test_system_admin_login(browser, test_data):
     browser.get(BASE_URL)
 
     email = test_data["logins"]["system_admin"]["email"]
-   
     password = test_data["logins"]["system_admin"]["password"]
 
     login = LoginPage(browser)

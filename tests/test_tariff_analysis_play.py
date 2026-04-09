@@ -12,8 +12,8 @@ def test_tariff_analysis_play(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["system_admin_login"]["email"]
-    password = test_data["system_admin_login"]["password"]
+    email = test_data["logins"]["system_admin"]["email"]
+    password = test_data["logins"]["system_admin"]["password"]
 
     # Jenkins-safe download directory
     download_dir = os.path.abspath("downloads")

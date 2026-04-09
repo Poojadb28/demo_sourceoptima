@@ -13,8 +13,8 @@ def test_admin_login(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["admin_login"]["email"]
-    password = test_data["admin_login"]["password"]
+    email = test_data["logins"]["admin"]["email"]
+    password = test_data["logins"]["admin"]["password"]
 
     login = LoginPage(browser)
 

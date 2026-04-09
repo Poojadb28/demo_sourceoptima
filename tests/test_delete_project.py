@@ -13,8 +13,8 @@ def test_delete_project(browser, test_data):
 
     browser.get(BASE_URL)
 
-    email = test_data["system_admin_login"]["email"]
-    password = test_data["system_admin_login"]["password"]
+    email = test_data["logins"]["system_admin"]["email"]
+    password = test_data["logins"]["system_admin"]["password"]
 
     login = LoginPage(browser)
     login.login(email, password)

@@ -19,8 +19,8 @@ def test_filter_labels(browser, test_data):
     # Open URL
     browser.get(BASE_URL)
 
-    email = test_data["system_admin_login"]["email"]
-    password = test_data["system_admin_login"]["password"]
+    email = test_data["logins"]["system_admin"]["email"]
+    password = test_data["logins"]["system_admin"]["password"]
 
     # Login
     login = LoginPage(browser)

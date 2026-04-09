@@ -18,8 +18,8 @@ def test_cost_reduction_play(browser, test_data):
     project = ProjectsPage(browser)
     cost = CostReductionPage(browser)
 
-    email = test_data["system_admin_login"]["email"]
-    password = test_data["system_admin_login"]["password"]
+    email = test_data["logins"]["system_admin"]["email"]
+    password = test_data["logins"]["system_admin"]["password"]
 
     login.login(email, password)
 
