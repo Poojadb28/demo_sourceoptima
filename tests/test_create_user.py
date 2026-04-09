@@ -8,17 +8,14 @@ from config.config import BASE_URL
 
 @pytest.mark.order(4)
 @pytest.mark.smoke
-def test_create_user(browser):
+def test_create_user(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
     browser.get(BASE_URL)
 
-    with open("testdata/user_data.json") as file:
-        data = json.load(file)
-
-    login_data = data["system_admin_login"]
-    user_data = data["create_user"]
+    login_data = test_data["system_admin_login"]
+    user_data = test_data["create_user"]
 
     login = LoginPage(browser)
     login.login(login_data["email"], login_data["password"])

@@ -1,5 +1,4 @@
 import pytest
-import json
 import os
 import time
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,15 +9,13 @@ from config.config import BASE_URL
 
 @pytest.mark.order(13)
 @pytest.mark.smoke
-def test_add_new_project(browser):
+def test_add_new_project(browser, test_data):
 
     browser.get(BASE_URL)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    #  Use fixture instead of file open
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     # Login
     login = LoginPage(browser)

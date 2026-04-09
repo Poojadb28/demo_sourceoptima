@@ -10,7 +10,7 @@ from config.config import BASE_URL
 
 @pytest.mark.order(25)
 @pytest.mark.regression
-def test_drawing_checker_veeco_play(browser):
+def test_drawing_checker_veeco_play(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
@@ -20,12 +20,8 @@ def test_drawing_checker_veeco_play(browser):
     project = ProjectsPage(browser)
     veeco = DrawingCheckerVeecoPage(browser)
 
-    # Load test data
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     # Jenkins-safe download directory
     download_dir = os.path.abspath("downloads")

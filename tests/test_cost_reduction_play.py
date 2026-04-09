@@ -1,5 +1,4 @@
 import pytest
-import json
 from selenium.webdriver.support.ui import WebDriverWait
 
 from pages.login_page import LoginPage
@@ -9,7 +8,7 @@ from config.config import BASE_URL
 
 @pytest.mark.order(21)
 @pytest.mark.regression
-def test_cost_reduction_play(browser):
+def test_cost_reduction_play(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
@@ -19,11 +18,8 @@ def test_cost_reduction_play(browser):
     project = ProjectsPage(browser)
     cost = CostReductionPage(browser)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     login.login(email, password)
 

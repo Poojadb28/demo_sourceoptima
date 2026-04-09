@@ -1,5 +1,4 @@
 import pytest
-import json
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -8,18 +7,15 @@ from config.config import BASE_URL
 
 @pytest.mark.order(31)
 @pytest.mark.regression
-def test_admin_invalid_login(browser):
+def test_admin_invalid_login(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
     browser.get(BASE_URL)
 
-    # Load test data
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["admin_invalid_login"]["email"]
-    password = data["admin_invalid_login"]["password"]
+    # Use fixture instead of file open
+    email = test_data["admin_invalid_login"]["email"]
+    password =test_data["admin_invalid_login"]["password"]
 
     login = LoginPage(browser)
 

@@ -1,5 +1,4 @@
 import pytest
-import json
 import os
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -9,17 +8,14 @@ from config.config import BASE_URL
 
 @pytest.mark.order(16)
 @pytest.mark.regression
-def test_export_classification_to_excel(browser):
+def test_export_classification_to_excel(browser, test_data):
 
     wait = WebDriverWait(browser, 30)
 
     browser.get(BASE_URL)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     login = LoginPage(browser)
     login.login(email, password)

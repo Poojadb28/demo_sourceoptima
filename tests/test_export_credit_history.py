@@ -1,5 +1,4 @@
 import pytest
-import json
 import os
 
 from pages.login_page import LoginPage
@@ -8,15 +7,12 @@ from config.config import BASE_URL
 
 @pytest.mark.order(8)
 @pytest.mark.regression
-def test_export_credit_history(browser):
+def test_export_credit_history(browser, test_data):
 
     browser.get(BASE_URL)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     login = LoginPage(browser)
     login.login(email, password)

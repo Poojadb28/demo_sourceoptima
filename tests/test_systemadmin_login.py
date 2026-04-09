@@ -1,5 +1,4 @@
 import pytest
-import json
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -8,17 +7,14 @@ from config.config import BASE_URL
 
 @pytest.mark.order(1)
 @pytest.mark.smoke
-def test_system_admin_login(browser):
+def test_system_admin_login(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
     browser.get(BASE_URL)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     login = LoginPage(browser)
 

@@ -1,5 +1,4 @@
 import pytest
-import json
 import os
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -10,7 +9,7 @@ from config.config import BASE_URL
 
 @pytest.mark.order(22)
 @pytest.mark.regression
-def test_design_review_play(browser):
+def test_design_review_play(browser, test_data):
 
     wait = WebDriverWait(browser, 20)
 
@@ -20,11 +19,8 @@ def test_design_review_play(browser):
     project = ProjectsPage(browser)
     design = DesignReviewPage(browser)
 
-    with open("testdata/login_data.json") as file:
-        data = json.load(file)
-
-    email = data["system_admin_login"]["email"]
-    password = data["system_admin_login"]["password"]
+    email = test_data["system_admin_login"]["email"]
+    password = test_data["system_admin_login"]["password"]
 
     # Jenkins-safe download dir
     download_dir = os.path.abspath("downloads")
